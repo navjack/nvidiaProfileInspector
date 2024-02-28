@@ -104,12 +104,12 @@ namespace nspector
                     }
                 }
 
-                clbBits.Items.Add(new ListViewItem(new string[] {
+                clbBits.Items.Add(new ListViewItem([
                         string.Format("#{0:00}",bit),
                         maskStr,
                         profileCount.ToString(),
                         profileNames,
-                    }));
+                    ]));
 
 
             }
@@ -240,10 +240,12 @@ namespace nspector
 
         private void btnBrowseGame_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.DefaultExt = "*.exe";
-            ofd.Filter = "Applications|*.exe";
-            ofd.DereferenceLinks = false;
+            OpenFileDialog ofd = new()
+            {
+                DefaultExt = "*.exe",
+                Filter = "Applications|*.exe",
+                DereferenceLinks = false
+            };
 
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {

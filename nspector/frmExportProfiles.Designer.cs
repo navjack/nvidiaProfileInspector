@@ -1,6 +1,6 @@
 ﻿namespace nspector
 {
-    partial class frmExportProfiles
+    partial class FrmExportProfiles
     {
         /// <summary>
         /// Required designer variable.

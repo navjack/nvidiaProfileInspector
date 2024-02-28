@@ -85,7 +85,7 @@ namespace nspector.Common.Helper
         private List<string> FindAllExecutablesForApp(int appid)
         {
             if (_appinfoBytes == null)
-                return new List<string>();
+                return [];
 
             var bid = BitConverter.GetBytes(appid);
             int offset = 0;
@@ -95,13 +95,13 @@ namespace nspector.Common.Helper
 
             var appidOffset = FindOffset(_appinfoBytes, appidPattern, offset);
             if (appidOffset == -1)
-                return new List<string>();
+                return [];
             else
                 offset = appidOffset + appidPattern.Length;
 
             var launchOffset = FindOffset(_appinfoBytes, launchPattern, offset);
             if (launchOffset == -1)
-                return new List<string>();
+                return [];
             else
                 offset = launchOffset;
 

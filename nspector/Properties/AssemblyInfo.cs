@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("NVIDIA Profile Inspector")]
-[assembly: AssemblyCopyright("©2022 by Orbmu2k")]
+[assembly: AssemblyCopyright("©2023 by Orbmu2k 2.4.0.4 - Updates by: AndreyRGW (Reference.xml) & Centaurioun 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.4.0.1")]
-[assembly: AssemblyFileVersion("2.4.0.1")]
+[assembly: AssemblyVersion("2.4.3.1")]
+[assembly: AssemblyFileVersion("2.4.3.1")]
 
 

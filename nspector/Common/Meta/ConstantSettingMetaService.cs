@@ -18,8 +18,8 @@ namespace nspector.Common.Meta
 
         private readonly Dictionary<ESetting, Type> settingEnumTypeCache;
 
-        private string[] ignoreSettingNames = { "TOTAL_DWORD_SETTING_NUM", "TOTAL_WSTRING_SETTING_NUM",
-                                                      "TOTAL_SETTING_NUM", "INVALID_SETTING_ID" };
+        private string[] ignoreSettingNames = [ "TOTAL_DWORD_SETTING_NUM", "TOTAL_WSTRING_SETTING_NUM",
+                                                      "TOTAL_SETTING_NUM", "INVALID_SETTING_ID" ];
 
         private Dictionary<ESetting, Type> CreateSettingEnumTypeCache()
         {

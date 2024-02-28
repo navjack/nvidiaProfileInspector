@@ -19,9 +19,9 @@ namespace nspector.Common
         private readonly CustomSettingNames _customSettings;
         private readonly CustomSettingNames _referenceSettings;
 
-        private List<MetaServiceItem> MetaServices = new List<MetaServiceItem>();
+        private List<MetaServiceItem> MetaServices = [];
 
-        private Dictionary<uint, SettingMeta> settingMetaCache = new Dictionary<uint, SettingMeta>();
+        private Dictionary<uint, SettingMeta> settingMetaCache = [];
 
         public DrsSettingsMetaService(CustomSettingNames customSettings, CustomSettingNames referenceSettings = null)
         {
@@ -33,8 +33,8 @@ namespace nspector.Common
 
         public void ResetMetaCache(bool initOnly = false)
         {
-            settingMetaCache = new Dictionary<uint, SettingMeta>();
-            MetaServices = new List<MetaServiceItem>();
+            settingMetaCache = [];
+            MetaServices = [];
 
             CustomMeta = new CustomSettingMetaService(_customSettings);
             MetaServices.Add(new MetaServiceItem() { ValueNamePrio = 1, Service = CustomMeta });
@@ -252,22 +252,22 @@ namespace nspector.Common
             switch (viewMode)
             {
                 case SettingViewMode.CustomSettingsOnly:
-                    return new[] {
+                    return [
                         SettingMetaSource.CustomSettings
-                    };
+                    ];
                 case SettingViewMode.IncludeScannedSetttings:
-                    return new[] {
+                    return [
                         SettingMetaSource.ConstantSettings,
                         SettingMetaSource.ScannedSettings,
                         SettingMetaSource.CustomSettings,
                         SettingMetaSource.DriverSettings,
                         SettingMetaSource.ReferenceSettings,
-                    };
+                    ];
                 default:
-                    return new[] {
+                    return [
                         SettingMetaSource.CustomSettings,
                         SettingMetaSource.DriverSettings,
-                    };
+                    ];
             }
         }
 
@@ -276,19 +276,19 @@ namespace nspector.Common
             switch (viewMode)
             {
                 case SettingViewMode.CustomSettingsOnly:
-                    return new[] {
+                    return [
                         SettingMetaSource.CustomSettings,
                         SettingMetaSource.ScannedSettings,
-                    };
+                    ];
                 default:
-                    return new[] {
+                    return [
                         SettingMetaSource.ConstantSettings,
                         SettingMetaSource.ScannedSettings,
                         SettingMetaSource.CustomSettings,
                         SettingMetaSource.DriverSettings,
                         SettingMetaSource.ReferenceSettings,
 
-                    };
+                    ];
             }
         }
 

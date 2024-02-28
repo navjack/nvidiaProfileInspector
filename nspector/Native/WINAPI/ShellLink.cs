@@ -324,7 +324,7 @@ namespace nspector.Native.WINAPI
         {
             get
             {
-                StringBuilder iconPath = new StringBuilder(260, 260);
+                StringBuilder iconPath = new(260, 260);
                 int iconIndex = 0;
                 if (linkA == null)
                 {
@@ -340,7 +340,7 @@ namespace nspector.Native.WINAPI
             }
             set
             {
-                StringBuilder iconPath = new StringBuilder(260, 260);
+                StringBuilder iconPath = new(260, 260);
                 int iconIndex = 0;
                 if (linkA == null)
                 {
@@ -367,7 +367,7 @@ namespace nspector.Native.WINAPI
         {
             get
             {
-                StringBuilder iconPath = new StringBuilder(260, 260);
+                StringBuilder iconPath = new(260, 260);
                 int iconIndex = 0;
                 if (linkA == null)
                 {
@@ -383,7 +383,7 @@ namespace nspector.Native.WINAPI
             }
             set
             {
-                StringBuilder iconPath = new StringBuilder(260, 260);
+                StringBuilder iconPath = new(260, 260);
                 int iconIndex = 0;
                 if (linkA == null)
                 {
@@ -410,16 +410,16 @@ namespace nspector.Native.WINAPI
         {
             get
             {
-                StringBuilder target = new StringBuilder(260, 260);
+                StringBuilder target = new(260, 260);
                 if (linkA == null)
                 {
-                    _WIN32_FIND_DATAW fd = new _WIN32_FIND_DATAW();
+                    _WIN32_FIND_DATAW fd = new();
                     linkW.GetPath(target, target.Capacity, ref fd,
                      (uint)EShellLinkGP.SLGP_UNCPRIORITY);
                 }
                 else
                 {
-                    _WIN32_FIND_DATAA fd = new _WIN32_FIND_DATAA();
+                    _WIN32_FIND_DATAA fd = new();
                     linkA.GetPath(target, target.Capacity, ref fd,
                      (uint)EShellLinkGP.SLGP_UNCPRIORITY);
                 }
@@ -442,7 +442,7 @@ namespace nspector.Native.WINAPI
         {
             get
             {
-                StringBuilder path = new StringBuilder(260, 260);
+                StringBuilder path = new(260, 260);
                 if (linkA == null)
                 {
                     linkW.GetWorkingDirectory(path, path.Capacity);
@@ -470,7 +470,7 @@ namespace nspector.Native.WINAPI
         {
             get
             {
-                StringBuilder description = new StringBuilder(1024, 1024);
+                StringBuilder description = new(1024, 1024);
                 if (linkA == null)
                 {
                     linkW.GetDescription(description, description.Capacity);
@@ -498,7 +498,7 @@ namespace nspector.Native.WINAPI
         {
             get
             {
-                StringBuilder arguments = new StringBuilder(260, 260);
+                StringBuilder arguments = new(260, 260);
                 if (linkA == null)
                 {
                     linkW.GetArguments(arguments, arguments.Capacity);

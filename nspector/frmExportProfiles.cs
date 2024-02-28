@@ -9,11 +9,11 @@ using nspector.Common.Import;
 
 namespace nspector
 {
-    internal partial class frmExportProfiles : Form
+    internal partial class FrmExportProfiles : Form
     {
         frmDrvSettings settingsOwner = null;
 
-        internal frmExportProfiles()
+        internal FrmExportProfiles()
         {
             InitializeComponent();
             this.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
@@ -74,7 +74,7 @@ namespace nspector
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            SaveFileDialog sfd = new SaveFileDialog();
+            SaveFileDialog sfd = new();
             sfd.DefaultExt = "*.nip";
             sfd.Filter = Application.ProductName + " Profiles|*.nip";
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)

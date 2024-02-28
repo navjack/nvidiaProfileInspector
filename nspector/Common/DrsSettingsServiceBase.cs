@@ -105,8 +105,10 @@ namespace nspector.Common
 
         protected NVDRS_PROFILE GetProfileInfo(IntPtr hSession, IntPtr hProfile)
         {
-            var tmpProfile = new NVDRS_PROFILE();
-            tmpProfile.version = nvw.NVDRS_PROFILE_VER;
+            var tmpProfile = new NVDRS_PROFILE
+            {
+                version = nvw.NVDRS_PROFILE_VER
+            };
 
             var gpRes = nvw.DRS_GetProfileInfo(hSession, hProfile, ref tmpProfile);
             if (gpRes != NvAPI_Status.NVAPI_OK)
@@ -268,7 +270,7 @@ namespace nspector.Common
             var esRes = NvapiDrsWrapper.DRS_EnumSettings(hSession, hProfile, 0, ref settingCount, ref settings);
 
             if (esRes == NvAPI_Status.NVAPI_END_ENUMERATION)
-                return new List<NVDRS_SETTING>();
+                return [];
 
             if (esRes != NvAPI_Status.NVAPI_OK)
                 throw new NvapiException("DRS_EnumSettings", esRes);
@@ -294,7 +296,7 @@ namespace nspector.Common
             var esRes = NvapiDrsWrapper.DRS_EnumApplications(hSession, hProfile, 0, ref appCount, ref apps);
 
             if (esRes == NvAPI_Status.NVAPI_END_ENUMERATION)
-                return new List<NVDRS_APPLICATION_V3>();
+                return [];
 
             if (esRes != NvAPI_Status.NVAPI_OK)
                 throw new NvapiException("DRS_EnumApplications", esRes);

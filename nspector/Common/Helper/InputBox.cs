@@ -75,7 +75,7 @@ namespace nspector.Common.Helper
 
             form.ClientSize = new Size(Dpi(396), Dpi(107));
             form.ClientSize = new Size(Math.Max(Dpi(300), label.Right + Dpi(10)), form.ClientSize.Height);
-            form.Controls.AddRange(new Control[] { label, textBox, imageBox, buttonOk, buttonCancel });
+            form.Controls.AddRange([label, textBox, imageBox, buttonOk, buttonCancel]);
             form.FormBorderStyle = FormBorderStyle.FixedDialog;
             form.StartPosition = FormStartPosition.CenterParent;
             form.MinimizeBox = false;

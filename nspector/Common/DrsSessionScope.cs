@@ -11,7 +11,7 @@ namespace nspector.Common
 
         public static volatile bool HoldSession = true;
 
-        private static object _Sync = new object();
+        private static object _Sync = new();
 
 
         public static T DrsSession<T>(Func<IntPtr, T> action, bool forceNonGlobalSession = false, bool preventLoadSettings = false)

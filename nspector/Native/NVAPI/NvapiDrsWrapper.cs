@@ -265,7 +265,7 @@ namespace nspector.Native.NVAPI2
 
         public string stringValue
         {
-            get => Encoding.Unicode.GetString(rawData).Split(new[] { '\0' }, 2)[0];
+            get => Encoding.Unicode.GetString(rawData).Split(['\0'], 2)[0];
 
             set
             {
@@ -277,7 +277,7 @@ namespace nspector.Native.NVAPI2
 
         public string ansiStringValue
         {
-            get => Encoding.Default.GetString(rawData).Split(new[] { '\0' }, 2)[0];
+            get => Encoding.Default.GetString(rawData).Split(['\0'], 2)[0];
 
             set
             {
@@ -434,7 +434,7 @@ namespace nspector.Native.NVAPI2
 
         private static T GetDelegateOfFunction<T>(IntPtr pLib, string signature)
         {
-            T FuncT = default(T);
+            T FuncT = default;
             IntPtr FuncAddr = GetProcAddress(pLib, signature);
             if (FuncAddr != IntPtr.Zero)
                 FuncT = (T)(object)Marshal.GetDelegateForFunctionPointer(FuncAddr, typeof(T));

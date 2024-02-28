@@ -49,7 +49,7 @@ namespace nspector
                         {
                             if (process.Id != current.Id && process.MainWindowTitle.Contains("Settings"))
                             {
-                                MessageHelper mh = new MessageHelper();
+                                MessageHelper mh = new();
                                 mh.sendWindowsStringMessage((int)process.MainWindowHandle, 0, "ProfilesImported");
                             }
                         }
@@ -75,24 +75,22 @@ namespace nspector
             {
 
                 bool createdNew = true;
-                using (Mutex mutex = new Mutex(true, Application.ProductName, out createdNew))
+                using Mutex mutex = new(true, Application.ProductName, out createdNew);
+                if (createdNew)
                 {
-                    if (createdNew)
+                    Application.Run(new frmDrvSettings(ArgExists(args, "-showOnlyCSN"), ArgExists(args, "-disableScan")));
+                }
+                else
+                {
+                    Process current = Process.GetCurrentProcess();
+                    foreach (
+                        Process process in
+                            Process.GetProcessesByName(current.ProcessName.Replace(".vshost", "")))
                     {
-                        Application.Run(new frmDrvSettings(ArgExists(args, "-showOnlyCSN"), ArgExists(args, "-disableScan")));
-                    }
-                    else
-                    {
-                        Process current = Process.GetCurrentProcess();
-                        foreach (
-                            Process process in
-                                Process.GetProcessesByName(current.ProcessName.Replace(".vshost", "")))
+                        if (process.Id != current.Id && process.MainWindowTitle.Contains("Settings"))
                         {
-                            if (process.Id != current.Id && process.MainWindowTitle.Contains("Settings"))
-                            {
-                                MessageHelper mh = new MessageHelper();
-                                mh.bringAppToFront((int)process.MainWindowHandle);
-                            }
+                            MessageHelper mh = new();
+                            mh.bringAppToFront((int)process.MainWindowHandle);
                         }
                     }
                 }

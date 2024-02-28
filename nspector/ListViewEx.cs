@@ -33,7 +33,7 @@ namespace nspector
             internal ListViewItem Item;
         }
 
-        private ArrayList _embeddedControls = new ArrayList();
+        private ArrayList _embeddedControls = [];
 
         public ListViewEx()
         {
@@ -247,7 +247,7 @@ namespace nspector
                                 }
                             }
 
-                            OnDropFilesNative(files.ToArray());
+                            OnDropFilesNative([.. files]);
                         }
                     }
 
